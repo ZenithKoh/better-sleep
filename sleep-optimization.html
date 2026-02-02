@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sleep Science — Optimize Your Rest, Transform Your Life</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* ============================================
+           CSS VARIABLES & RESET
+           ============================================ */
+        :root {
+            /* Cosmic Night Palette */
+            --color-deep-space: #0a0e27;
+            --color-midnight: #131a3d;
+            --color-twilight: #1a2555;
+            --color-nebula-purple: #4a3b6b;
+            --color-nebula-blue: #2d4a7c;
+            --color-star-glow: #a8b5ff;
+            --color-moon-silver: #c5d3e8;
+            --color-cosmic-accent: #7b68ee;
+            --color-warning-amber: #ffb347;
+            
+            /* Typography */
+            --font-display: 'Cormorant Garamond', serif;
+            --font-body: 'IBM Plex Sans', sans-serif;
+            
+            /* Spacing */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 2rem;
+            --space-lg: 4rem;
+            --space-xl: 6rem;
+            
+            /* Effects */
+            --glow-soft: 0 0 30px rgba(123, 104, 238, 0.15);
+            --glow-medium: 0 0 50px rgba(123, 104, 238, 0.3);
+            --shadow-card: 0 8px 32px rgba(10, 14, 39, 0.4);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            background: linear-gradient(135deg, var(--color-deep-space) 0%, var(--color-midnight) 50%, var(--color-twilight) 100%);
+            color: var(--color-moon-silver);
+            line-height: 1.7;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+        
+        /* Starfield Background Effect */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(2px 2px at 20% 30%, rgba(255, 255, 255, 0.8), transparent),
+                radial-gradient(2px 2px at 60% 70%, rgba(168, 181, 255, 0.6), transparent),
+                radial-gradient(1px 1px at 50% 50%, rgba(197, 211, 232, 0.4), transparent),
+                radial-gradient(1px 1px at 80% 10%, rgba(255, 255, 255, 0.5), transparent),
+                radial-gradient(2px 2px at 90% 60%, rgba(168, 181, 255, 0.7), transparent),
+                radial-gradient(1px 1px at 33% 80%, rgba(197, 211, 232, 0.5), transparent),
+                radial-gradient(1px 1px at 15% 90%, rgba(255, 255, 255, 0.6), transparent);
+            background-size: 200% 200%;
+            animation: twinkle 8s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.4;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
+        
+        /* ============================================
+           TYPOGRAPHY
+           ============================================ */
+        h1, h2, h3, h4 {
+            font-family: var(--font-display);
+            font-weight: 600;
+            line-height: 1.2;
+            color: #fff;
+        }
+        
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 300;
+            letter-spacing: -0.02em;
+            margin-bottom: var(--space-md);
+        }
+        
+        h2 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 400;
+            margin-bottom: var(--space-md);
+            position: relative;
+        }
+        
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            margin-bottom: var(--space-sm);
+            color: var(--color-star-glow);
+        }
+        
+        p {
+            font-size: 1.125rem;
+            margin-bottom: var(--space-sm);
+            font-weight: 300;
+        }
+        
+        /* ============================================
+           LAYOUT CONTAINERS
+           ============================================ */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+            position: relative;
+            z-index: 2;
+        }
+        
+        section {
+            padding: var(--space-xl) 0;
+            position: relative;
+        }
+        
+        /* ============================================
+           HERO SECTION
+           ============================================ */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(123, 104, 238, 0.3) 0%, transparent 70%);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: pulse 4s ease-in-out infinite;
+            filter: blur(60px);
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.3; }
+            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.5; }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero h1 {
+            background: linear-gradient(135deg, #fff 0%, var(--color-star-glow) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: var(--space-md);
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(1.125rem, 2vw, 1.5rem);
+            color: var(--color-moon-silver);
+            margin-bottom: var(--space-lg);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+        
+        /* ============================================
+           BUTTONS
+           ============================================ */
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: linear-gradient(135deg, var(--color-cosmic-accent), var(--color-nebula-blue));
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 1.125rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--glow-soft);
+            border: 1px solid rgba(123, 104, 238, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .cta-button:hover::before {
+            left: 100%;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--glow-medium);
+        }
+        
+        /* ============================================
+           CARDS & CONTENT SECTIONS
+           ============================================ */
+        .section-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto var(--space-lg) auto;
+        }
+        
+        .section-intro p {
+            font-size: 1.25rem;
+            color: var(--color-moon-silver);
+            opacity: 0.9;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-md);
+            margin-top: var(--space-lg);
+        }
+        
+        .card {
+            background: linear-gradient(135deg, rgba(26, 37, 85, 0.4), rgba(19, 26, 61, 0.6));
+            border: 1px solid rgba(168, 181, 255, 0.1);
+            border-radius: 20px;
+            padding: var(--space-md);
+            backdrop-filter: blur(10px);
+            transition: all 0.4s ease;
+            box-shadow: var(--shadow-card);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(123, 104, 238, 0.3);
+            box-shadow: 0 12px 40px rgba(123, 104, 238, 0.2);
+        }
+        
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: var(--space-sm);
+            display: inline-block;
+        }
+        
+        .card h3 {
+            margin-bottom: var(--space-sm);
+        }
+        
+        .card p {
+            font-size: 1rem;
+            color: var(--color-moon-silver);
+            opacity: 0.85;
+        }
+        
+        .card ul {
+            list-style: none;
+            margin-top: var(--space-sm);
+        }
+        
+        .card li {
+            padding: var(--space-xs) 0;
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 1rem;
+            color: var(--color-moon-silver);
+            opacity: 0.85;
+        }
+        
+        .card li::before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            color: var(--color-cosmic-accent);
+        }
+        
+        /* ============================================
+           SLEEP REQUIREMENTS TABLE
+           ============================================ */
+        .sleep-table {
+            background: linear-gradient(135deg, rgba(26, 37, 85, 0.3), rgba(19, 26, 61, 0.5));
+            border: 1px solid rgba(168, 181, 255, 0.15);
+            border-radius: 20px;
+            overflow: hidden;
+            margin: var(--space-lg) 0;
+            backdrop-filter: blur(10px);
+        }
+        
+        .sleep-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding: 1.5rem var(--space-md);
+            border-bottom: 1px solid rgba(168, 181, 255, 0.1);
+            transition: background 0.3s ease;
+        }
+        
+        .sleep-row:last-child {
+            border-bottom: none;
+        }
+        
+        .sleep-row:hover {
+            background: rgba(123, 104, 238, 0.05);
+        }
+        
+        .age-group {
+            font-weight: 500;
+            color: var(--color-star-glow);
+            font-size: 1.125rem;
+        }
+        
+        .hours {
+            text-align: right;
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            color: #fff;
+        }
+        
+        /* ============================================
+           MYTHS VS FACTS
+           ============================================ */
+        .myth-fact-grid {
+            display: grid;
+            gap: var(--space-md);
+            margin-top: var(--space-lg);
+        }
+        
+        .myth-fact-item {
+            background: linear-gradient(135deg, rgba(26, 37, 85, 0.4), rgba(19, 26, 61, 0.6));
+            border-left: 4px solid var(--color-warning-amber);
+            border-radius: 15px;
+            padding: var(--space-md);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .myth-fact-item:hover {
+            transform: translateX(5px);
+            box-shadow: -5px 0 20px rgba(255, 179, 71, 0.2);
+        }
+        
+        .myth {
+            font-weight: 500;
+            color: var(--color-warning-amber);
+            margin-bottom: var(--space-xs);
+            font-size: 1.125rem;
+        }
+        
+        .myth::before {
+            content: '✗ MYTH: ';
+            font-weight: 600;
+        }
+        
+        .fact {
+            color: var(--color-moon-silver);
+            opacity: 0.9;
+        }
+        
+        .fact::before {
+            content: '✓ FACT: ';
+            color: var(--color-star-glow);
+            font-weight: 500;
+        }
+        
+        /* ============================================
+           CHECKLIST SECTION
+           ============================================ */
+        .checklist-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-md);
+            margin-top: var(--space-lg);
+        }
+        
+        .checklist {
+            background: linear-gradient(135deg, rgba(74, 59, 107, 0.3), rgba(45, 74, 124, 0.3));
+            border: 1px solid rgba(168, 181, 255, 0.2);
+            border-radius: 20px;
+            padding: var(--space-md);
+            backdrop-filter: blur(10px);
+        }
+        
+        .checklist h3 {
+            margin-bottom: var(--space-md);
+            text-align: center;
+        }
+        
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            padding: var(--space-sm) 0;
+            border-bottom: 1px solid rgba(168, 181, 255, 0.1);
+        }
+        
+        .checklist-item:last-child {
+            border-bottom: none;
+        }
+        
+        .checklist-icon {
+            font-size: 1.25rem;
+            margin-right: var(--space-sm);
+            color: var(--color-cosmic-accent);
+            flex-shrink: 0;
+        }
+        
+        .checklist-text {
+            font-size: 1rem;
+            color: var(--color-moon-silver);
+        }
+        
+        /* ============================================
+           HIGHLIGHT BOXES
+           ============================================ */
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(123, 104, 238, 0.15), rgba(45, 74, 124, 0.15));
+            border: 2px solid rgba(123, 104, 238, 0.3);
+            border-radius: 20px;
+            padding: var(--space-md);
+            margin: var(--space-lg) 0;
+            box-shadow: var(--glow-soft);
+        }
+        
+        .highlight-box h3 {
+            color: var(--color-star-glow);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .highlight-box p {
+            margin-bottom: var(--space-sm);
+        }
+        
+        /* ============================================
+           FOOTER
+           ============================================ */
+        footer {
+            background: linear-gradient(180deg, transparent, rgba(10, 14, 39, 0.8));
+            border-top: 1px solid rgba(168, 181, 255, 0.1);
+            padding: var(--space-lg) 0 var(--space-md);
+            text-align: center;
+            margin-top: var(--space-xl);
+        }
+        
+        .footer-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .footer-message {
+            font-size: 1.125rem;
+            color: var(--color-star-glow);
+            margin-bottom: var(--space-md);
+            font-family: var(--font-display);
+        }
+        
+        .disclaimer {
+            font-size: 0.875rem;
+            color: var(--color-moon-silver);
+            opacity: 0.6;
+            line-height: 1.6;
+        }
+        
+        /* ============================================
+           RESPONSIVE DESIGN
+           ============================================ */
+        @media (max-width: 768px) {
+            :root {
+                --space-lg: 3rem;
+                --space-xl: 4rem;
+            }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .sleep-row {
+                grid-template-columns: 1fr;
+                gap: var(--space-xs);
+                text-align: left;
+            }
+            
+            .hours {
+                text-align: left;
+            }
+            
+            .checklist-container {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+        }
+        
+        /* ============================================
+           ANIMATIONS & MICRO-INTERACTIONS
+           ============================================ */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .card-icon {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .card:nth-child(1) .card-icon { animation-delay: 0s; }
+        .card:nth-child(2) .card-icon { animation-delay: 0.3s; }
+        .card:nth-child(3) .card-icon { animation-delay: 0.6s; }
+        
+        /* Section entrance animations */
+        section {
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* Smooth scroll indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            color: var(--color-star-glow);
+            opacity: 0.6;
+            font-size: 2rem;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translate(-50%, 0); }
+            50% { transform: translate(-50%, 10px); }
+        }
+    </style>
+</head>
+<body>
+    <!-- ============================================
+         HERO SECTION
+         ============================================ -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Transform Your Life<br>Through Better Sleep</h1>
+                <p class="hero-subtitle">Science-backed strategies to optimize your rest, boost your brain health, and unlock your full potential through the power of quality sleep.</p>
+                <a href="#tips" class="cta-button">Improve Your Sleep Tonight</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">↓</div>
+    </section>
+
+    <!-- ============================================
+         WHY SLEEP IS ESSENTIAL
+         ============================================ -->
+    <section id="why-sleep">
+        <div class="container">
+            <div class="section-intro">
+                <h2>Why Sleep Is Essential</h2>
+                <p>Sleep isn't downtime—it's when your body and brain perform critical restoration and maintenance work that keeps you functioning at your best.</p>
+            </div>
+            
+            <div class="content-grid">
+                <div class="card">
+                    <div class="card-icon">🧠</div>
+                    <h3>Brain Health & Cognition</h3>
+                    <p>During sleep, your brain consolidates memories, processes information, and clears metabolic waste through the glymphatic system. Deep sleep is when long-term memories are formed and strengthened.</p>
+                    <ul>
+                        <li>Enhanced memory consolidation</li>
+                        <li>Improved focus and concentration</li>
+                        <li>Better problem-solving abilities</li>
+                        <li>Increased creativity and insight</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">⚖️</div>
+                    <h3>Hormones & Metabolism</h3>
+                    <p>Sleep regulates critical hormones including insulin, leptin, and ghrelin. Poor sleep disrupts these systems, leading to increased appetite, weight gain, and metabolic dysfunction.</p>
+                    <ul>
+                        <li>Balanced blood sugar regulation</li>
+                        <li>Healthy appetite control</li>
+                        <li>Optimal growth hormone release</li>
+                        <li>Proper cortisol rhythms</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">🛡️</div>
+                    <h3>Immune System Function</h3>
+                    <p>Sleep strengthens your immune system by producing cytokines and T-cells that fight infection and inflammation. People who don't get enough sleep are significantly more susceptible to illness.</p>
+                    <ul>
+                        <li>Enhanced immune response</li>
+                        <li>Faster recovery from illness</li>
+                        <li>Reduced inflammation</li>
+                        <li>Better vaccine effectiveness</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">💚</div>
+                    <h3>Mental Health & Emotion</h3>
+                    <p>Sleep is crucial for emotional regulation and mental health. REM sleep helps process emotional experiences, while chronic sleep deprivation increases risk of anxiety and depression.</p>
+                    <ul>
+                        <li>Better emotional stability</li>
+                        <li>Reduced anxiety and stress</li>
+                        <li>Lower depression risk</li>
+                        <li>Improved mood regulation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         HOW MUCH SLEEP YOU NEED
+         ============================================ -->
+    <section id="sleep-needs">
+        <div class="container">
+            <div class="section-intro">
+                <h2>How Much Sleep Do You Really Need?</h2>
+                <p>Sleep requirements vary by age and individual factors. These are evidence-based recommendations from sleep research organizations.</p>
+            </div>
+            
+            <div class="sleep-table">
+                <div class="sleep-row">
+                    <div class="age-group">Infants (4-12 months)</div>
+                    <div class="hours">12-16 hours</div>
+                </div>
+                <div class="sleep-row">
+                    <div class="age-group">Toddlers (1-2 years)</div>
+                    <div class="hours">11-14 hours</div>
+                </div>
+                <div class="sleep-row">
+                    <div class="age-group">Preschool (3-5 years)</div>
+                    <div class="hours">10-13 hours</div>
+                </div>
+                <div class="sleep-row">
+                    <div class="age-group">School Age (6-12 years)</div>
+                    <div class="hours">9-12 hours</div>
+                </div>
+                <div class="sleep-row">
+                    <div class="age-group">Teens (13-18 years)</div>
+                    <div class="hours">8-10 hours</div>
+                </div>
+                <div class="sleep-row">
+                    <div class="age-group">Adults (18-64 years)</div>
+                    <div class="hours">7-9 hours</div>
+                </div>
+                <div class="sleep-row">
+                    <div class="age-group">Older Adults (65+ years)</div>
+                    <div class="hours">7-8 hours</div>
+                </div>
+            </div>
+            
+            <div class="highlight-box">
+                <h3>Understanding Sleep Cycles</h3>
+                <p><strong>REM Sleep (Rapid Eye Movement):</strong> This is when you dream. REM sleep is critical for emotional processing, memory consolidation, and learning. Your brain is highly active during REM, while your body is temporarily paralyzed to prevent acting out dreams.</p>
+                <p><strong>Deep Sleep (Slow-Wave Sleep):</strong> The most restorative stage of sleep. During deep sleep, your body repairs tissues, builds muscle and bone, strengthens the immune system, and the brain clears metabolic waste. Growth hormone is released during this stage.</p>
+                <p>A complete sleep cycle lasts approximately 90 minutes and includes both REM and non-REM stages. You typically go through 4-6 cycles per night, with more deep sleep in the first half of the night and more REM sleep toward morning.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         CONSEQUENCES OF POOR SLEEP
+         ============================================ -->
+    <section id="consequences">
+        <div class="container">
+            <div class="section-intro">
+                <h2>What Happens When You Don't Sleep Enough</h2>
+                <p>Sleep deprivation has both immediate and long-term consequences that affect virtually every system in your body.</p>
+            </div>
+            
+            <div class="content-grid">
+                <div class="card">
+                    <h3>Short-Term Effects</h3>
+                    <p>Even a single night of poor sleep impacts your functioning:</p>
+                    <ul>
+                        <li>Impaired concentration and decision-making</li>
+                        <li>Slower reaction times (comparable to alcohol intoxication)</li>
+                        <li>Increased irritability and mood swings</li>
+                        <li>Reduced immune function</li>
+                        <li>Increased appetite and cravings</li>
+                        <li>Memory problems and difficulty learning</li>
+                        <li>Decreased motor coordination</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3>Long-Term Health Risks</h3>
+                    <p>Chronic sleep deprivation is linked to serious health conditions:</p>
+                    <ul>
+                        <li>Cardiovascular disease and hypertension</li>
+                        <li>Type 2 diabetes and metabolic syndrome</li>
+                        <li>Obesity and weight gain</li>
+                        <li>Depression and anxiety disorders</li>
+                        <li>Weakened immune system</li>
+                        <li>Increased Alzheimer's disease risk</li>
+                        <li>Reduced life expectancy</li>
+                        <li>Higher risk of accidents and injuries</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="highlight-box">
+                <h3>The Cognitive Cost</h3>
+                <p>Research shows that being awake for 17-19 hours produces performance impairments equivalent to a blood alcohol content of 0.05%. After 24 hours without sleep, impairment is equivalent to 0.1% BAC—legally drunk in most countries. Your brain simply cannot function optimally without adequate sleep.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SCIENCE-BASED SLEEP OPTIMIZATION
+         ============================================ -->
+    <section id="tips">
+        <div class="container">
+            <div class="section-intro">
+                <h2>Science-Based Ways to Sleep Better</h2>
+                <p>These evidence-backed strategies work with your body's natural biology to improve sleep quality and duration.</p>
+            </div>
+            
+            <div class="content-grid">
+                <div class="card">
+                    <div class="card-icon">☀️</div>
+                    <h3>Light Exposure & Circadian Rhythm</h3>
+                    <p><strong>Get bright light early:</strong> Expose yourself to bright light (ideally sunlight) within the first hour of waking. This anchors your circadian rhythm and promotes alertness.</p>
+                    <p><strong>Dim lights at night:</strong> Reduce light exposure 2-3 hours before bed. Your brain produces melatonin in response to darkness, signaling it's time to sleep.</p>
+                    <p><strong>Why it works:</strong> Light is the most powerful zeitgeber (time cue) for your circadian clock, located in the suprachiasmatic nucleus of your brain.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">☕</div>
+                    <h3>Caffeine Timing</h3>
+                    <p><strong>Stop caffeine by early afternoon:</strong> Caffeine has a half-life of 5-6 hours, meaning half the caffeine from your afternoon coffee is still in your system at bedtime.</p>
+                    <p><strong>Individual variation:</strong> Some people metabolize caffeine faster or slower. If you're sensitive, cut off caffeine 10-12 hours before bed.</p>
+                    <p><strong>Why it works:</strong> Caffeine blocks adenosine receptors. Adenosine builds up during wakefulness and creates sleep pressure—caffeine interferes with this natural process.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">⏰</div>
+                    <h3>Consistent Sleep Schedule</h3>
+                    <p><strong>Same bedtime and wake time:</strong> Go to bed and wake up at the same time every day, even on weekends. This strengthens your circadian rhythm.</p>
+                    <p><strong>Avoid "social jetlag":</strong> Sleeping in on weekends disrupts your internal clock, making Monday mornings harder.</p>
+                    <p><strong>Why it works:</strong> Consistency trains your brain and body to anticipate sleep, making it easier to fall asleep and wake naturally.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">🛏️</div>
+                    <h3>Bedroom Environment</h3>
+                    <p><strong>Cool temperature:</strong> Keep your bedroom between 60-67°F (15-19°C). Your core body temperature needs to drop for sleep initiation.</p>
+                    <p><strong>Complete darkness:</strong> Use blackout curtains or an eye mask. Even small amounts of light can disrupt melatonin production.</p>
+                    <p><strong>Quiet space:</strong> Use earplugs or white noise if needed. Sudden noises fragment sleep even if you don't fully wake.</p>
+                    <p><strong>Bed for sleep only:</strong> Don't work, watch TV, or scroll on your phone in bed. Build a strong mental association between bed and sleep.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">🏃</div>
+                    <h3>Exercise & Temperature</h3>
+                    <p><strong>Exercise regularly:</strong> Physical activity improves sleep quality and duration, but avoid vigorous exercise within 2-3 hours of bedtime.</p>
+                    <p><strong>Hot bath or shower:</strong> Taking a warm bath 90 minutes before bed causes a subsequent drop in core temperature that signals sleep readiness.</p>
+                    <p><strong>Why it works:</strong> Exercise increases adenosine buildup (sleep pressure) and helps regulate circadian rhythms. The temperature drop after a hot bath mimics the natural decrease your body needs for sleep.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">📱</div>
+                    <h3>Screen Use & Blue Light</h3>
+                    <p><strong>Stop screens 1-2 hours before bed:</strong> The blue light from phones, tablets, and computers suppresses melatonin production.</p>
+                    <p><strong>Use blue light filters:</strong> If you must use screens at night, enable night mode or use blue-blocking glasses.</p>
+                    <p><strong>Content matters too:</strong> Even without blue light, stimulating content (news, social media, work emails) can increase alertness and stress.</p>
+                    <p><strong>Why it works:</strong> Blue wavelengths are particularly effective at suppressing melatonin and shifting your circadian rhythm later.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         MYTHS VS FACTS
+         ============================================ -->
+    <section id="myths">
+        <div class="container">
+            <div class="section-intro">
+                <h2>Sleep Myths vs Facts</h2>
+                <p>Let's debunk common misconceptions about sleep with scientific evidence.</p>
+            </div>
+            
+            <div class="myth-fact-grid">
+                <div class="myth-fact-item">
+                    <div class="myth">You can catch up on sleep during the weekend</div>
+                    <div class="fact">While you can partially recover from short-term sleep debt, chronic sleep deprivation causes cumulative cognitive and health effects that weekend recovery sleep doesn't fully reverse. Consistency is far more important than attempting to "bank" sleep.</div>
+                </div>
+                
+                <div class="myth-fact-item">
+                    <div class="myth">Alcohol helps you sleep better</div>
+                    <div class="fact">Alcohol is a sedative, not a sleep aid. While it may help you fall asleep faster, it significantly disrupts sleep architecture, reduces REM sleep, and causes fragmented sleep in the second half of the night. You wake up less rested despite sleeping.</div>
+                </div>
+                
+                <div class="myth-fact-item">
+                    <div class="myth">Older people need less sleep</div>
+                    <div class="fact">Older adults need just as much sleep as younger adults (7-8 hours), but they often have more difficulty getting it due to changes in circadian rhythms, medical conditions, and medications. The need doesn't decrease—the ability often does.</div>
+                </div>
+                
+                <div class="myth-fact-item">
+                    <div class="myth">Your body adapts to getting less sleep</div>
+                    <div class="fact">While you may feel less sleepy after chronic sleep restriction due to habituation, objective measures of cognitive performance, reaction time, and health markers continue to decline. You become unaware of your impairment, but your performance doesn't improve.</div>
+                </div>
+                
+                <div class="myth-fact-item">
+                    <div class="myth">Everyone needs exactly 8 hours of sleep</div>
+                    <div class="fact">While 7-9 hours is the recommended range for adults, individual needs vary based on genetics, age, health, and activity levels. Some people genuinely thrive on 7 hours, while others need 9. The key is feeling rested and alert during the day.</div>
+                </div>
+                
+                <div class="myth-fact-item">
+                    <div class="myth">Snoring is harmless</div>
+                    <div class="fact">While occasional snoring is usually benign, chronic loud snoring can indicate sleep apnea—a serious condition where breathing repeatedly stops during sleep. Sleep apnea is associated with cardiovascular disease, stroke, and daytime impairment. Loud snoring should be evaluated by a doctor.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         PRACTICAL TIPS CHECKLIST
+         ============================================ -->
+    <section id="checklist">
+        <div class="container">
+            <div class="section-intro">
+                <h2>Quick Practical Tips</h2>
+                <p>Use these simple checklists to build healthy sleep habits that last.</p>
+            </div>
+            
+            <div class="checklist-container">
+                <div class="checklist">
+                    <h3>🌙 Evening Routine</h3>
+                    <div class="checklist-item">
+                        <div class="checklist-icon">✓</div>
+                        <div class="checklist-text">Dim lights 2-3 hours before bed</div>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checklist-icon">✓</div>
+                        <div class="checklist-text">Stop caffeine by 2 PM</div>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checklist-icon">✓</div>
+                        <div class="checklist-text">No screens 1 hour before sleep</div>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checklist-icon">✓</div>
+                        <div class="checklist-text">Keep bedroom cool (60-67°F)</div>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checklist-icon">✓</div>
+                        <div class="checklist-text">Take a warm bath 90 min before bed</div>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checklist-icon">✓</div>
+                        <div class="checklist-text">Read or do relaxing activity</div>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checklist-icon">✓</div>
+                        <div class="checklist-text">Go to bed at the same time</div>
+                    </div>
+                </div>
+                
+                <div class="checklist">
+                    <h3>☀️ Morning Habits</h3>
+                    <div class="checklist-item">
+                        <div class="checklist-icon">✓</div>
+                        <div class="checklist-text">Wake up at the same time daily</div>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checklist-icon">✓</div>
+                        <div class="checklist-text">Get bright light exposure within 1 hour</div>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checklist-icon">✓</div>
+                        <div class="checklist-text">Go outside if possible (10-30 min)</div>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checklist-icon">✓</div>
+                        <div class="checklist-text">Avoid hitting snooze button</div>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checklist-icon">✓</div>
+                        <div class="checklist-text">Hydrate first thing</div>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checklist-icon">✓</div>
+                        <div class="checklist-text">Move your body (light exercise/stretch)</div>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checklist-icon">✓</div>
+                        <div class="checklist-text">Eat breakfast within 1-2 hours</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="highlight-box" style="margin-top: var(--space-lg);">
+                <h3>If You Can't Fall Asleep</h3>
+                <p>If you've been in bed for 20 minutes and can't sleep, get up and do a calm activity in low light until you feel sleepy. Lying awake in bed creates a negative association between your bed and wakefulness. Return to bed only when you feel drowsy.</p>
+                <p>Avoid checking the time repeatedly—this increases anxiety about sleep. Trust your body's signals rather than watching the clock.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-message">May you rest deeply, dream vividly, and wake refreshed.</p>
+                <p class="disclaimer">
+                    <strong>Disclaimer:</strong> This website provides general information about sleep science and optimization based on current research. It is not intended as medical advice and should not replace consultation with a qualified healthcare provider. If you have persistent sleep problems, excessive daytime sleepiness, loud snoring, or other sleep-related concerns, please consult a sleep specialist or physician. Individual sleep needs and responses to interventions vary.
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
